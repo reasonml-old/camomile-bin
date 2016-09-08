@@ -1,0 +1,47 @@
+{
+  "name": "camomile-bin",
+  "version": "0.8.5",
+  "description": "bin wrapper for camomile",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "eval $(dependencyEnv) && nopam && make install"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "exportedEnvVars": {
+    "camomile_enable": {
+      "global": true,
+      "globalCollisionBehavior": "clobber",
+      "val": "enable"
+    },
+    "CAMOMILE_DIR": {
+      "global": true,
+      "resolveAsRelativePath": true,
+      "globalCollisionBehavior": "clobber",
+      "val": "./_build/ocamlfind/share/camomile"
+    },
+    "PATH": {
+      "global": true,
+      "resolveAsRelativePath": true,
+      "globalCollisionBehavior": "joinPath",
+      "val": "./_build/ocamlfind/bin"
+    },
+    "camomile_installed": {
+      "global": true,
+      "globalCollisionBehavior": "clobber",
+      "val": "true"
+    },
+    "FINDLIB": {
+      "global": true,
+      "resolveAsRelativePath": true,
+      "globalCollisionBehavior": "joinPath",
+      "val": "./_build/ocamlfind/lib"
+    }
+  },
+  "dependencies": {
+    "ocamlfind": "https://github.com/npm-opam/ocamlfind.git",
+    "nopam": "https://github.com/yunxing/nopam.git",
+    "dependency-env": "https://github.com/npm-ml/dependency-env.git"
+  }
+}

@@ -4,4 +4,4 @@ platform ?= $(shell node -p 'process.platform')
 install:
 	ln -fs ../vendor-darwin/share ./vendor-linux/share
 	cp -r vendor-$(platform)/lib/* _build/ocamlfind/lib
-	cp -rL vendor-$(platform)/share/* _build/ocamlfind/share
+	cp -L vendor-$(platform)/share/* _build/ocamlfind/share
